@@ -23,36 +23,37 @@ class _AuthenticationState extends State<Authentication> {
             back: false,
             title:
                 haveAccount ? "Connectez-vous à votre compte !" : "Inscription",
-            subtitle:
-                haveAccount ? "Connectez-vous à votre compte" : "Inscription",
+            subtitle: haveAccount
+                ? "Connectez-vous à votre compte"
+                : "Créer votre compte",
           ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20.0),
+          Container(
+            height: MediaQuery.of(context).size.height * .65,
+            margin: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Expanded(
-                    child: haveAccount ? const Login() : const Register(),
-                  ),
+                  haveAccount ? const Login() : const Register(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           color: Colors.grey,
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 18.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 18.0),
                         child: Text(
-                          "Ou connectez-vous avec",
+                          haveAccount
+                              ? "Ou connectez-vous avec"
+                              : "Ou inscrivez-vous avec",
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Divider(
                           color: Colors.grey,
                         ),
@@ -78,40 +79,35 @@ class _AuthenticationState extends State<Authentication> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 10.0,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          haveAccount
-                              ? "Vous avez déjà un compte ?"
-                              : "Vous n'avez pas de compte ?",
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        haveAccount
+                            ? "Vous n'avez pas de compte ?"
+                            : "Vous avez déjà un compte ?",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            haveAccount = !haveAccount;
+                          });
+                        },
+                        child: Text(
+                          haveAccount ? "Inscription" : "Connexion",
                           style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey,
-                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFc0e863),
+                            fontSize: 18.0,
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              haveAccount = !haveAccount;
-                            });
-                          },
-                          child: Text(
-                            haveAccount ? "Connexion" : "Inscription",
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFc0e863),
-                              fontSize: 18.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),

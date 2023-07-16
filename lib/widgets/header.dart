@@ -10,7 +10,8 @@ class MyAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .3,
       child: Stack(
         children: [
           Container(
