@@ -35,43 +35,48 @@ class _AuthenticationState extends State<Authentication> {
                   Expanded(
                     child: haveAccount ? const Login() : const Register(),
                   ),
-                  const Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 18.0),
-                          child: Text(
-                            "Ou connectez-vous avec",
-                          ),
-                        ),
-                        Expanded(
-                          child: Divider(
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ],
-                    ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  const Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        OAuthTile(
-                          icon: "google",
-                          text: "Google",
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
                         ),
-                        OAuthTile(
-                          icon: "facebook",
-                          text: "Facebook",
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 18.0),
+                        child: Text(
+                          "Ou connectez-vous avec",
                         ),
-                      ],
-                    ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.03,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      OAuthTile(
+                        icon: "google",
+                        text: "Google",
+                      ),
+                      OAuthTile(
+                        icon: "facebook",
+                        text: "Facebook",
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
