@@ -9,6 +9,9 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  bool showPassword1 = false;
+  bool showPassword2 = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -93,18 +96,18 @@ class _RegisterState extends State<Register> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
-          const TextField(
+          TextField(
             decoration: InputDecoration(
-              label: Text(
+              label: const Text(
                 "Mot de passe",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
               ),
-              floatingLabelStyle: TextStyle(
+              floatingLabelStyle: const TextStyle(
                 color: Colors.grey,
               ),
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -114,7 +117,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -126,25 +129,35 @@ class _RegisterState extends State<Register> {
               ),
               hintText: "unique1234",
               focusColor: Colors.grey,
+              suffixIcon: InkWell(
+                onTap: () {
+                  setState(() {
+                    showPassword1 = !showPassword1;
+                  });
+                },
+                child: Icon(
+                  showPassword1 ? Icons.visibility : Icons.visibility_off,
+                ),
+              ),
             ),
-            obscureText: true,
+            obscureText: showPassword1 ? false : true,
             cursorColor: Colors.grey,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
-          const TextField(
+          TextField(
             decoration: InputDecoration(
-              label: Text(
+              label: const Text(
                 "Confirmer le mot de passe",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
               ),
-              floatingLabelStyle: TextStyle(
+              floatingLabelStyle: const TextStyle(
                 color: Colors.grey,
               ),
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -154,7 +167,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -166,8 +179,18 @@ class _RegisterState extends State<Register> {
               ),
               hintText: "unique1234",
               focusColor: Colors.grey,
+              suffixIcon: InkWell(
+                onTap: () {
+                  setState(() {
+                    showPassword2 = !showPassword2;
+                  });
+                },
+                child: Icon(
+                  showPassword2 ? Icons.visibility : Icons.visibility_off,
+                ),
+              ),
             ),
-            obscureText: true,
+            obscureText: showPassword2 ? false : true,
             cursorColor: Colors.grey,
           ),
           SizedBox(

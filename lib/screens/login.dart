@@ -9,6 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -54,18 +55,18 @@ class _LoginState extends State<Login> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
-          const TextField(
+          TextField(
             decoration: InputDecoration(
-              label: Text(
+              label: const Text(
                 "Mot de passe",
                 style: TextStyle(
                   color: Colors.grey,
                 ),
               ),
-              floatingLabelStyle: TextStyle(
+              floatingLabelStyle: const TextStyle(
                 color: Colors.grey,
               ),
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -75,7 +76,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              focusedBorder: OutlineInputBorder(
+              focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.grey,
                 ),
@@ -87,8 +88,18 @@ class _LoginState extends State<Login> {
               ),
               hintText: "unique1234",
               focusColor: Colors.grey,
+              suffixIcon: InkWell(
+                onTap: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                child: Icon(
+                  showPassword ? Icons.visibility : Icons.visibility_off,
+                ),
+              ),
             ),
-            obscureText: true,
+            obscureText: showPassword ? false : true,
             cursorColor: Colors.grey,
           ),
           SizedBox(
