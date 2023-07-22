@@ -100,6 +100,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             obscureText: showPassword ? false : true,
+            obscuringCharacter: '*',
             cursorColor: Colors.grey,
           ),
           SizedBox(

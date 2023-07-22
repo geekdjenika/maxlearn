@@ -141,6 +141,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             obscureText: showPassword1 ? false : true,
+            obscuringCharacter: '*',
             cursorColor: Colors.grey,
           ),
           SizedBox(
@@ -191,6 +192,7 @@ class _RegisterState extends State<Register> {
               ),
             ),
             obscureText: showPassword2 ? false : true,
+            obscuringCharacter: '*',
             cursorColor: Colors.grey,
           ),
           SizedBox(
