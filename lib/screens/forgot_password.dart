@@ -18,7 +18,7 @@ class ForgotPassword extends StatelessWidget {
             subtitle: 'Entrer votre email pour réinitialiser le mot de passe',
           ),
           Container(
-            height: MediaQuery.of(context).size.height * .65,
+            height: MediaQuery.of(context).size.height * .61,
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SingleChildScrollView(
               child: Column(

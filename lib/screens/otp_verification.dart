@@ -25,7 +25,7 @@ class _OTPVerificationState extends State<OTPVerification> {
             subtitle: 'Vérifier votre email pour le code de vérification',
           ),
           Container(
-            height: MediaQuery.of(context).size.height * .65,
+            height: MediaQuery.of(context).size.height * .61,
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SingleChildScrollView(
               child: Column(

@@ -29,7 +29,7 @@ class _AuthenticationState extends State<Authentication> {
                 : "Créer votre compte",
           ),
           Container(
-            height: MediaQuery.of(context).size.height * .65,
+            height: MediaQuery.of(context).size.height * .61,
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             child: SingleChildScrollView(
               child: Column(
