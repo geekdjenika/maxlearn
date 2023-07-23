@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maxlearn/screens/forgot_password.dart';
 import 'package:maxlearn/widgets/my_button.dart';
 
 class Login extends StatefulWidget {
@@ -110,7 +111,14 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const ForgotPassword(),
+                    ),
+                  );
+                },
                 child: const Text(
                   "Mot de passe oublié ?",
                   style: TextStyle(
